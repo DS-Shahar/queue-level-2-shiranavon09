@@ -72,5 +72,29 @@ class Main {
         }
         return maxSum;
     }
+    public static void ex4_oppStack(Stack<Integer> s)
+    {
+        Queue<Integer> a=new Queue<Integer>();
+        while(!s.isEmpty())
+        {
+            a.insert(s.pop());
+        }
+        while(!a.isEmpty())
+        {
+            s.push(a.remove());
+        }
+    }
+    public static void ex5_oppQueue(Queue<Integer> a)
+    {
+        Stack<Integer> s=new Stack<Integer>();
+        while(!a.isEmpty())
+        {
+            s.push(a.remove());
+        }
+        while(!s.isEmpty())
+        {
+            a.insert(s.pop());
+        }
+    }
 
 }
