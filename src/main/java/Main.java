@@ -96,5 +96,18 @@ class Main {
             a.insert(s.pop());
         }
     }
-
+    public boolean ex2_hasDups(Queue<String> q)
+    {
+        Queue<String> helper = new Queue<>();
+        boolean found = false;
+        while(!q.isEmpty())
+        {
+            String x = q.remove();
+            if(isIn(x,helper))
+                found = true;
+            helper.add(x);
+        }
+        while(!helper.isEmpty())
+            q.add(helper.remove());
+        return found;
 }
