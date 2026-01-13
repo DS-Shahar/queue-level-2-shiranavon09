@@ -110,4 +110,48 @@ class Main {
         while(!helper.isEmpty())
             q.add(helper.remove());
         return found;
+      public static void ex3_cleanDuplicates(Queue<Integer> q) //O(n)
+    {
+        Queue<Integer> res=new Queue<Integer>();
+        while(!q.isEmpty())
+        {
+            int x=q.remove();
+            if(!isIn(res,x))
+                res.insert(x);
+        }
+        while(!res.isEmpty())
+            q.insert(res.remove());
+    }
+    public static void ex4_sortQueue(Queue<Integer> q) //O(n)
+    {
+        Queue<Integer> temp=new Queue<Integer>();
+        Queue<Integer> sorted=new Queue<Integer>();
+    
+        while(!q.isEmpty())
+        {
+            int min=q.remove();
+            temp.insert(min);
+            while(!q.isEmpty())
+            {
+                int x=q.remove();
+                if(x<min)
+                    min=x;
+                temp.insert(x);
+            }
+            boolean used=false;
+            while(!temp.isEmpty())
+            {
+                int x=temp.remove();
+                if(x==min&&!used)
+                {
+                    sorted.insert(x);
+                    used=true;
+                }
+                else
+                    q.insert(x);
+            }
+        }
+        while(!sorted.isEmpty())
+            q.insert(sorted.remove());
+    }
 }
