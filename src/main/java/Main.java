@@ -154,51 +154,6 @@ class Main {
         while(!sorted.isEmpty())
             q.insert(sorted.remove());
     }
-    \\\\\\\\\\\\\\homework 1.2.16\\\\\\\\\
-    public static int countHeight(BinNode<Integer> t)
-    {
-        if(t==null)
-            return -1;
-        return Math.max(1+countHeight(t.getRight()),1+countHeight(t.getLeft()));
-    }
-    public static int countLeaves2(BinNode<Integer> t)
-    {
-        if(t==null)
-            return 1;
-        return 0+countLeaves2(t.getRight())+countLeaves2(t.getLeft());
-    }
-    public static boolean twoInOne(BinNode<Integer> t1,BinNode<Integer> t2)
-    {
-        if(t1==null&&t2==null)
-            return true;
-        if(t1==null||t2==null)
-            return false;
-        return t1.getValue().equals(t2.getValue()) &&
-            identical(t1.getLeft(),t2.getLeft()) &&
-            identical(t1.getRight(),t2.getRight());
-    }
-    public static boolean identical(BinNode<Integer> t1,BinNode<Integer> t2)
-    {
-        if(t1==null&&t2==null)
-            return true;
-        if(t1==null||t2==null)
-            return false;
-        return t1.getValue().equals(t2.getValue())&&
-            identical(t1.getLeft(),t2.getLeft()) &&
-            identical(t1.getRight(),t2.getRight());
-    }
-    public static boolean rightLeft(BinNode <Integer> t)
-    {
-        if(t==null)
-            return true;
-        if(t.hasLeft()!=true&&t.hasRight())
-            return false;
-        else
-        {
-            if(rightLeft(t.getLeft())==true&&rightLeft(t.getLeft())==true)
-                return true;
-            return false;
-        }
-    }
+    
 
 }
